@@ -1,0 +1,54 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div>
+    <ion-button slot="start" color="light" [routerLink]="['/login']" routerLinkActive="router-link-active">
+      <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      <p>Login</p>
+    </ion-button>
+  </div>
+  <div id="header">
+    <h1>Crea tu Cuenta</h1>
+    <figure class="ion-no-padding ion-no-margin" style="display: flex; justify-content: center;">
+      <img class ="profile-defauld-image" src="../../assets/images/images.png" alt="">
+    </figure>
+  </div>
+  <form [formGroup]="loginForm" id="form-signup" (ngSubmit)="HomePage()">
+    <app-input [FormControlName]="'nombre'" type="text" [control]="loginForm.get('nombre')"
+      placeholder="Nombre"></app-input>
+
+    <app-input [FormControlName]="'apellido'" type="text" [control]="loginForm.get('apellido')"
+      placeholder="Apellido"></app-input>
+
+    <app-input [FormControlName]="'email'" type="email" [control]="loginForm.get('email')"
+      placeholder="Correo Electrónico"></app-input>
+
+    <app-input [FormControlName]="'password'" type="password" [control]="loginForm.get('password')"
+      placeholder="Contraseña"></app-input>
+
+
+
+    <div class="password-feedback" [ngClass]="passwordStrengthClass" *ngIf="password?.dirty || password?.touched">
+      <span class="error-message" *ngIf="password?.hasError('minlength')">
+        La contraseña debe tener al menos {{ password?.getError('minlength')?.requiredLength }} caracteres.
+      </span>
+      <span class="password-feedback" *ngIf="password?.hasError('passwordStrength')">
+        Por favor incluir letras, números y un caracter especial.
+      </span>
+    </div>
+    <app-input [FormControlName]="'confirmPassword'" type="password" [control]="loginForm.get('confirmPassword')"
+      placeholder="Confirmar Contraseña"></app-input>
+    <span class="error-message" *ngIf="confirmPassword?.touched && loginForm.hasError('passwordMismatch')">
+      Las contraseñas no coinciden.
+    </span>
+    <div>
+      <ion-button id="signup-button" type="submit" expand="block" shape="round">
+        Crear Cuenta
+      </ion-button>
+    </div>
+  </form>
+
+</ion-content>

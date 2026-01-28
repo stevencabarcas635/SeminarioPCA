@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar [style.--background]="backgroundColor"]>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [style.--background]="backgroundColor"]>
+  <ion-header>
+    <ion-toolbar [style.--background]="backgroundColor"]>
+      <ion-buttons  slot="start">
+        <ion-button color="medium" shape="round" (click)="backHome()"> 
+          <ion-icon style="font-size: 30px;" name="arrow-back"></ion-icon><strong>Home</strong>
+        </ion-button>
+      </ion-buttons>
+      <ion-title [style.--color]="colorTitle">Géneros Musicales</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <swiper-container 
+    slides-per-view="1"
+    [loop]="true"
+    class="my-custom-swiper"
+    
+  >
+    <swiper-slide  *ngFor="let genre of musicalGenres">
+      <ion-card  class="slide-content" [style.background-color]="colorCard" [style.color]="colorText" >
+        <img  class="slide-image" src="{{ genre.imageUrl }}" alt="{{ genre.name }}" />
+        <ion-card-header >
+          <ion-card-title  [style.color]="colorTitle">{{ genre.name }}</ion-card-title>
+        </ion-card-header>
+
+        <ion-card-content class="ion-text-justify" style="font-size: 1.1em;">{{ genre.description }}</ion-card-content>
+
+        <ion-grid class="ion-margin-top ion-margin-bottom" >
+          <ion-row>
+            <ion-col *ngFor="let subgenre of genre.subgenres" size="auto" style="padding: 0px;">
+              <ion-chip [style.color]="colorText"]>{{ subgenre }}</ion-chip>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card>
+    </swiper-slide>
+  </swiper-container>  
+</ion-content>

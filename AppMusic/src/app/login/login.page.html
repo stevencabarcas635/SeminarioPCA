@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+  <div id="header">
+    <h1>Iniciar Sesión</h1>
+  </div>
+  <figure class="ion-no-padding ion-no-margin" style="display: flex; justify-content: center;">
+    <img class ="profile-defauld-image" src="../../assets/images/images.png" alt="">
+  </figure>
+  <form [formGroup]="loginForm" id="form-login" (ngSubmit)="onLogin()">
+    <app-input [FormControlName]="'email'" type="email" [control]="loginForm.get('email')"
+      placeholder="Correo electrónico"></app-input>
+    <app-input [FormControlName]="'password'" type="password" [control]="loginForm.get('password')" placeholder="Contraseña"></app-input>
+    
+    <div id="container-home-button">
+      <ion-button id="home-button" type="submit" expand="block" shape="round">Iniciar Sesión</ion-button>
+    </div>
+    <div id="container-signup-button">
+      <ion-button id="signup-button" expand="block" shape="round" [routerLink]="['/register']"
+        routerLinkActive="router-link-active">Crear Cuenta nueva</ion-button>
+    </div>
+  </form>
+</ion-content>

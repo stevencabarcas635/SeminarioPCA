@@ -1,0 +1,49 @@
+ion-item {
+    background: #ffffff;
+    border-radius: 15px;
+    //height: 55px;
+    box-shadow: 1px 8px 8px 0px rgba(0, 0, 0, 0.08);
+
+    ion-input {
+        --padding-start: 5px;
+        font-size: 17px;
+        --border-color: transparent;
+    }
+
+    [data-input-type="password"] {
+        --padding-top: 18px;
+    }
+
+    [data-input-type="email"] {
+        --padding-top: 15px;
+        --padding-bottom: 15px;
+    }
+
+    [data-input-type="text"] {
+        --padding-top: 15px;
+        --padding-bottom: 15px;
+    }
+
+
+    a {
+        letter-spacing: 0.5px;
+        text-decoration: none;
+    }
+}
+
+
+
+.error-state {
+    --border-color: var(--ion-color-danger, #eb445a);
+    /* Borde rojo */
+    --highlight-color-focused: transparent;
+    /* Opcional: Para evitar que el highlight anule el rojo */
+}
+
+.error-message {
+    color: var(--ion-color-danger, #eb445a);
+    font-size: 13px;
+    margin-bottom: 9px;
+    margin-left: 16px;
+    /* Para alinearlo con el contenido del item */
+}

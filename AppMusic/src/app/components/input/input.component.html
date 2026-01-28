@@ -1,0 +1,26 @@
+<ion-item class="ion-margin-bottom" [class.error-state]="showError">
+  <ion-input 
+    [type]="inputType" 
+    [placeholder]="placeholder" 
+    [maxlength]="maxlength" 
+    [value]="control?.value || ''"
+    (ionBlur)="onTouched()" 
+    (ionInput)="onInputChanged($event)">
+
+    <ion-icon 
+      *ngIf="type === 'password'" 
+      [name]="isPasswordVisible ? 'eye-off' : 'eye'" 
+      slot="end"
+      (click)="togglePasswordVisibility()">
+    </ion-icon>
+  </ion-input>
+</ion-item>
+
+<div *ngIf="showError" class="error-message">
+  <span *ngIf="control && control.hasError('required')">
+    Este campo es obligatorio.
+  </span>
+  <ng-container *ngIf="control && control.hasError('email')">
+    Por favor, introduce un correo válido.
+  </ng-container>
+</div>
