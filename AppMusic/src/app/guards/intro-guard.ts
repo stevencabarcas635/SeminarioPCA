@@ -15,7 +15,7 @@ export class HomeGuard implements CanActivate{
     if (introView){
       return true
     }
-    this.router.navigateByUrl('/intro');
+    this.router.navigateByUrl('menu/intro');
     return false;
   }
 }
@@ -30,7 +30,7 @@ export class LoginRegisterGuard implements CanActivate{
   async canActivate(){
     const loginUser: string = await this.storage.getData('login');
     if (loginUser){
-      this.router.navigateByUrl('/home');
+      this.router.navigateByUrl('menu/home');
       return true;
     }else{
       return true

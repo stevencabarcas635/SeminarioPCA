@@ -15,23 +15,19 @@ export class MockDataService {
       apellido: 'Sistema',
       email: 'admin@sistema.com',
       password: 'admin123',
-      introView: false,
+      introView: true,
       fechaRegistro: '2025-11-10'
     }
   ];
 
   constructor(private storageService: StorageService) {
-    if (!this.storageService.getData(this.storageKey)) {
-      this.initializeMockData();
-    }
   }
 
-  async initializeMockData(): Promise<void> {
+  async initializeMockData(){
     await this.storageService.setData(this.storageKey, JSON.stringify(this.initialUsers));
   }
 
   async getUsers(): Promise<User[]> {
-    this.initializeMockData();
     const usersJson: string = await this.storageService.getData(this.storageKey);
     return JSON.parse(usersJson);
   }
@@ -53,13 +49,11 @@ export class MockDataService {
   }
 
   async getUserByEmail(email: string): Promise<User | undefined> {
-    this.initializeMockData();
     const users: User[] = await this.getUsers();
     return users.find(user => user.email === email);
   }
 
   async getIntroViewByEmail(email: string): Promise<boolean> {
-    this.initializeMockData();
     const user: User | undefined = await this.getUserByEmail(email);
     this.setIntroViewByEmail(email, true);
     return user? user.introView : false;

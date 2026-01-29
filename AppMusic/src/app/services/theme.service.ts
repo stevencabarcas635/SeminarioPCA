@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { StorageService } from './storage.service';
+import { BehaviorSubject } from 'rxjs';
 
 import { Theme } from '../models/theme.model';
 
@@ -7,6 +8,9 @@ import { Theme } from '../models/theme.model';
   providedIn: 'root',
 })
 export class ThemeService {
+  private themeSubject = new BehaviorSubject<Theme | null>(null);
+  public theme$ = this.themeSubject.asObservable();
+
   constructor(private storage: StorageService) {}
 
   async initializeTheme(): Promise<void> {
@@ -14,7 +18,8 @@ export class ThemeService {
     if (currentTheme === null) {
       await this.changeTheme();
     } else {
-      await this.LoadTheme();
+      const theme = await this.LoadTheme();
+      this.themeSubject.next(theme);
     }
   }
 
@@ -28,7 +33,9 @@ export class ThemeService {
     await this.storage.setData('colorText', `var(--color-Text-${newTheme})`);
     await this.storage.setData('backgroundColor', `var(--color-Background-${newTheme})`);
 
-    return await this.LoadTheme();
+    const theme = await this.LoadTheme();
+    this.themeSubject.next(theme);
+    return theme;
   }
 
   async LoadTheme():Promise<Theme>{
@@ -40,5 +47,5 @@ export class ThemeService {
     }
     return theme;
   }
-}
+} 
 

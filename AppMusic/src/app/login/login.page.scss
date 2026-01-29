@@ -9,97 +9,92 @@
 ion-content {
     --background: #f5f4f3;
 
-    #header {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
-        h1 {
-            margin-top: 27%;
-            font-weight: 700;
-            font-size: 38px;
-            color: #2e2e2c;
-            margin-bottom: 15%;
-        }
-
-    }
-
-    #login-icon {
-        justify-content: center;
-        display: flex;
+    h1 {
+        margin-top: 10%;
+        font-weight: 700;
+        font-size: 38px;
+        color: #2e2e2c;
         margin-bottom: 15%;
-
-        ion-icon {
-            font-size: 90px;
-            color: #2e2e2c;
-        }
     }
 
-    #form-login {
-        margin-top: 25%;
-        padding: 6%;
+}
 
-        ion-button {
-            font-size: 15px;
-            font-weight: 700;
-            height: 40px;
-        }
+#login-icon {
+    justify-content: center;
+    display: flex;
+    margin-bottom: 15%;
 
-        #container-home-button {
-            margin-top: 10%;
-
-            #home-button {
-                --background: #2e2e2c;
-                --background-hover: #c0c0c0;
-                --background-activated: #5d6362;
-                --background-focused: #6b2525;
-
-                --color: #FFFFFF;
-                --coloractive: #2e2e2c;
-
-
-                --border-radius: 10px;
-                --border-color: transparent;
-
-                --box-shadow: 1px 8px 6px 0 rgb(0, 0, 0, 0.25);
-
-                --ripple-color: rgb(117, 114, 114);
-
-                --padding-top: 10px;
-                --padding-bottom: 10px;
-                -o-animation: reverse;
-            }
-        }
-
-
-        #container-signup-button {
-            margin-top: 29%;
-
-            #signup-button {
-                --background: transparent;
-                --background-hover: #666666;
-                --background-activated: #2e2e2c;
-                --background-focused: #2e2e2c;
-
-                --color: #000000;
-
-
-                --border-radius: 10px;
-                --border-color: #000;
-                --border-style: solid;
-                --border-width: 1px;
-
-                --box-shadow: 1px 8px 6px 0 rgb(0, 0, 0, 0.25);
-
-                --ripple-color: rgb(41, 40, 40);
-
-                --padding-top: 10px;
-                --padding-bottom: 10px;
-            }
-
-        }
+    ion-icon {
+        font-size: 90px;
+        color: #2e2e2c;
     }
 }
+
+#form-login {
+    margin-top: 10%;
+    padding: 6%;
+
+    ion-button {
+        font-size: 15px;
+        font-weight: 700;
+        height: 40px;
+    }
+
+    #container-home-button {
+        margin-top: 10%;
+
+        #home-button {
+            --background: #2e2e2c;
+            --background-hover: #c0c0c0;
+            --background-activated: #5d6362;
+            --background-focused: #6b2525;
+
+            --color: #FFFFFF;
+            --coloractive: #2e2e2c;
+
+
+            --border-radius: 10px;
+            --border-color: transparent;
+
+            --box-shadow: 1px 8px 6px 0 rgb(0, 0, 0, 0.25);
+
+            --ripple-color: rgb(117, 114, 114);
+
+            --padding-top: 10px;
+            --padding-bottom: 10px;
+            -o-animation: reverse;
+        }
+    }
+
+
+    #container-signup-button {
+        margin-top: 29%;
+
+        #signup-button {
+            --background: transparent;
+            --background-hover: #666666;
+            --background-activated: #2e2e2c;
+            --background-focused: #2e2e2c;
+
+            --color: #000000;
+
+
+            --border-radius: 10px;
+            --border-color: #000;
+            --border-style: solid;
+            --border-width: 1px;
+
+            --box-shadow: 1px 8px 6px 0 rgb(0, 0, 0, 0.25);
+
+            --ripple-color: rgb(41, 40, 40);
+
+            --padding-top: 10px;
+            --padding-bottom: 10px;
+        }
+
+    }
+}
+
 
 // Estilos para mensajes de error
 .error-message {

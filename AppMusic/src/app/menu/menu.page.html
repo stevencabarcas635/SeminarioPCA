@@ -1,0 +1,43 @@
+
+
+<ion-menu [style.background-color]="colorCard" side="end" contentId="main-content" type="push">
+  <ion-header>
+    <ion-toolbar [style.--background]="backgroundColor">
+    </ion-toolbar>
+  </ion-header>
+  <ion-header >
+    <ion-toolbar [style.--background]="colorCard">
+      <ion-buttons slot="start">
+        <ion-menu-toggle >
+          <ion-button >
+            <ion-icon slot="start" name="close" [style.color]="colorTitle"></ion-icon>
+          </ion-button>
+        </ion-menu-toggle>
+      </ion-buttons>
+      <ion-title class="ion-no-padding" [style.color]="colorTitle" class="ion-text-center">Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content [style.--background]="colorCard">
+    <ion-list>
+      <ion-menu-toggle   auto-hide="false">
+        <ion-item class="ion-margin-bottom ion-margin-top"  [style.--background]="colorCard" (click)="goToHome()">
+          <ion-label [style.color]="colorTitle">Home</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+      <ion-menu-toggle [style.--background]="colorCard" auto-hide="false">
+        <ion-item class="ion-margin-bottom" [style.--background]="colorCard" (click)="goToIntro()">
+          <ion-label [style.color]="colorTitle">Intro</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+
+    </ion-list>
+
+    <div class="logout-container">
+      <ion-button class="ion-margin-bottom" expand="block" color="medium" (click)="changeTheme()">Cambiar tema</ion-button>
+      <ion-button expand="block" color="danger" (click)="logOut()">Cerrar sesión</ion-button>
+    </div> 
+    
+  </ion-content>
+</ion-menu>
+
+<ion-router-outlet id="main-content"></ion-router-outlet>

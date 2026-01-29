@@ -5,13 +5,15 @@
 
 <ion-content [style.--background]="backgroundColor"]>
   <ion-header>
-    <ion-toolbar [style.--background]="backgroundColor"]>
+    <ion-toolbar >
       <ion-buttons  slot="start">
         <ion-button color="medium" shape="round" (click)="backHome()"> 
           <ion-icon style="font-size: 30px;" name="arrow-back"></ion-icon><strong>Home</strong>
         </ion-button>
       </ion-buttons>
-      <ion-title [style.--color]="colorTitle">Géneros Musicales</ion-title>
+      <ion-buttons class="ion-margin-end" style="border-radius: 10px;" slot="end">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
     </ion-toolbar>
   </ion-header>
   <swiper-container 
